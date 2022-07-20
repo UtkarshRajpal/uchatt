@@ -3,9 +3,8 @@ import Picker from 'emoji-picker-react';
 import "./Emoji.css" 
 import {FaRegSmile} from 'react-icons/fa' 
 
-const Emoji = ({setnewMessage}) => {
-  const [chosenEmoji, setChosenEmoji] = useState(null);
-  const [show, setShow] = useState(false)
+const Emoji = ({setnewMessage, show, setShow}) => {
+  
 
   const onEmojiClick = (event, emojiObject) => {
     setnewMessage((prevMssg) => prevMssg + emojiObject.emoji);

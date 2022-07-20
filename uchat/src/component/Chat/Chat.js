@@ -20,6 +20,7 @@ const Chat = () => {
     const [id, setid] = useState("");
     const [messages, setmessages] = useState([])
     const [newMessage, setnewMessage]=useState("");
+    const [showEmojiPicker, setShowEmojiPicker] = useState(false)
 
     useEffect(() => {
           socket = socketIO(ENDPOINT, { transports: ['websocket'] });
@@ -59,6 +60,7 @@ const send=()=>{
     if(!newMessage) return
        socket.emit('message',{message: newMessage,id});
        setnewMessage("");
+       setShowEmojiPicker(false)
    }
 
 console.log(messages);
@@ -87,7 +89,7 @@ console.log(messages);
                 </ReactSCrollToBottom>
                 
                 <div className='inputBox'>
-                    <Emoji setnewMessage={setnewMessage}/>
+                    <Emoji setnewMessage={setnewMessage} show={showEmojiPicker} setShow={setShowEmojiPicker}/>
                     <input onKeyPress={(event)=> event.key==='Enter'?send():null} type="text" id="chatInput" 
                         value={newMessage}
                         onChange={(e)=>setnewMessage(e.target.value)}
