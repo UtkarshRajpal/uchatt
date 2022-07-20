@@ -9,6 +9,7 @@
 }
 
 .ChatContainer{
+    position: relative;
     background-color: white;
     height: 60%;
     width: 50%;
@@ -16,17 +17,21 @@
 }
 
 .header{
+    position: absolute;
+    top: 0px;
+width: 100%;
     background-color:crimson ;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 15%;
+    height: 80px;
+    
 }
 
 .header h2{
     margin: 0;
-    color: white;
-    font-size: 1.5vmax;
+    color: rgb(255, 228, 228);
+    font-size: 2vmax;
     margin: 2.5vmax;
 }
 
@@ -46,18 +51,22 @@
 }
 
 
-
+     
 .chatBox{
+    padding-top: 80px ;
     /* border: 0.2vmax solid black; */
-    height: 70%;
+    height: 100%;
     box-sizing: border-box;
-    
+    padding-bottom: 80px;
 }
 
 .inputBox{
-    height: 15%;
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
 box-sizing: border-box;
 display: flex;
+height: 80px;
 }
 
 #chatInput{

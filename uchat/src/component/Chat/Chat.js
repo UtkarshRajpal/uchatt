@@ -56,6 +56,7 @@ const Chat = () => {
 },[])
 
 const send=()=>{
+    if(!newMessage) return
        socket.emit('message',{message: newMessage,id});
        setnewMessage("");
    }

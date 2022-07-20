@@ -72,14 +72,14 @@ body{
     }
 
     .chatBox{
-        height: 80% !important;
+        /* height: 80% !important; */
         
         
     }
     
 
     .inputBox{
-        height: 10% !important;
+        /* height: 10% !important; */
     
     }
 
@@ -154,7 +154,7 @@ body{
     }
 
     .header{
-        height: 10% !important;
+        /* height: 10% !important; */
     }
 
     .header h2{
@@ -174,14 +174,14 @@ body{
     }
 
     .chatBox{
-        height: 80% !important;
+        /* height: 80% !important; */
         
         
     }
     
 
     .inputBox{
-        height: 10% !important;
+        /* height: 10% !important; */
     
     }
 

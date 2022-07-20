@@ -15,7 +15,7 @@ const Emoji = ({setnewMessage}) => {
     <div className='emojiBox'>
         <FaRegSmile
         className='EmojiIcon'
-            size="1.5em"
+            size="1.8em"
             onClick={() => setShow(!show)}
         />
         {show && (
