@@ -6,6 +6,7 @@ import sendlogo from "../../images/send.png";
 import Message from "../Message/Message";
 import ReactSCrollToBottom from "react-scroll-to-bottom";
 import closeIcon from "../../images/closeIcon.png"
+import Emoji from '../Emoji';
 
 
 
@@ -18,6 +19,7 @@ const Chat = () => {
 
     const [id, setid] = useState("");
     const [messages, setmessages] = useState([])
+    const [newMessage, setnewMessage]=useState("");
 
     useEffect(() => {
           socket = socketIO(ENDPOINT, { transports: ['websocket'] });
@@ -39,7 +41,7 @@ const Chat = () => {
 
         socket.on('userjoined',(data)=>{
             setmessages([...messages,data]);
-            console.log(data.user,data.message);
+            console.log(2, "fdg");
         })
 
         socket.on('leave',(data)=>{
@@ -54,16 +56,15 @@ const Chat = () => {
 },[])
 
 const send=()=>{
-    const message = document.getElementById('chatInput').value;
-       socket.emit('message',{message,id});
-       document.getElementById('chatInput').value="";
+       socket.emit('message',{message: newMessage,id});
+       setnewMessage("");
    }
 
 console.log(messages);
     useEffect(() => {
       socket.on('sendMessage', (data)=>{
         setmessages([...messages,data]);
-         console.log(data.user,data.message.message); 
+         console.log(data.user,data.message); 
       })
     
       return () => {
@@ -83,8 +84,13 @@ console.log(messages);
                 <ReactSCrollToBottom className='chatBox'>
                     {messages.map((item,i)=> <Message user={item.message.id===id?"":item.user} message={item.user==="Admin"?item.message:item.message.message} classs={item.message.id===id?'right':'left'} /> )}
                 </ReactSCrollToBottom>
+                
                 <div className='inputBox'>
-                    <input onKeyPress={(event)=> event.key==='Enter'?send():null} type="text" id="chatInput" />
+                    <Emoji setnewMessage={setnewMessage}/>
+                    <input onKeyPress={(event)=> event.key==='Enter'?send():null} type="text" id="chatInput" 
+                        value={newMessage}
+                        onChange={(e)=>setnewMessage(e.target.value)}
+                    />
                     <button  onClick={send} className='sendBtn'><img src={sendlogo} alt="Send" /></button>
                     
                 </div>
