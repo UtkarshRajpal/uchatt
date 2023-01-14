@@ -11,7 +11,7 @@ import Emoji from '../Emoji';
 
 
 let socket;
- const ENDPOINT = "https://u-chat-server.herokuapp.com/";
+ const ENDPOINT = "https://uchat-g47u.onrender.com";
 
 
 const Chat = () => {
